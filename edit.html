@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Survey Response</title>
+    <!-- Add Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Edit Survey Response</h2>
+        <form method="post">
+            {% csrf_token %}
+            
+            <!-- First Name -->
+            <div class="mb-3">
+                <label for="first_name" class="form-label">First Name</label>
+                <input type="text" name="first_name" class="form-control" id="first_name" value="{{ response.first_name }}" placeholder="Enter your first name" required>
+            </div>
+
+            <!-- Middle Name -->
+            <div class="mb-3">
+                <label for="middle_name" class="form-label">Middle Name</label>
+                <input type="text" name="middle_name" class="form-control" id="middle_name" value="{{ response.middle_name }}" placeholder="Enter your middle name">
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Last Name</label>
+                <input type="text" name="last_name" class="form-control" id="last_name" value="{{ response.last_name }}" placeholder="Enter your last name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="email" value="{{ response.email }}" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Country Code -->
+            <div class="mb-3">
+                <label for="country_code" class="form-label">Country Code</label>
+                <input type="text" name="country_code" class="form-control" id="country_code" value="{{ response.country_code }}" placeholder="Enter your country code" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="mb-3">
+                <label for="phone_number" class="form-label">Phone Number</label>
+                <input type="text" name="phone_number" class="form-control" id="phone_number" value="{{ response.phone_number }}" placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Gender -->
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select name="gender" class="form-select" id="gender">
+                    <option value="Male" {% if response.gender == "Male" %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if response.gender == "Female" %}selected{% endif %}>Female</option>
+                    <option value="Other" {% if response.gender == "Other" %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+
+            <!-- Favorite Color -->
+            <div class="mb-3">
+                <label for="favorite_color" class="form-label">Favorite Color</label>
+                <select name="favorite_color" class="form-select" id="favorite_color" required>
+                    <option value="Red" {% if response.favorite_color == "Red" %}selected{% endif %}>Red</option>
+                    <option value="Violet" {% if response.favorite_color == "Violet" %}selected{% endif %}>Violet</option>
+                    <option value="Green" {% if response.favorite_color == "Green" %}selected{% endif %}>Green</option>
+                    <option value="Yellow" {% if response.favorite_color == "Yellow" %}selected{% endif %}>Yellow</option>
+                </select>
+            </div>
+
+            <!-- Favorite Fruit -->
+            <div class="mb-3">
+                <label for="favorite_fruit" class="form-label">Favorite Fruit</label>
+                <select name="favorite_fruit" class="form-select" id="favorite_fruit" required>
+                    <option value="Watermelon" {% if response.favorite_fruit == "Watermelon" %}selected{% endif %}>Watermelon</option>
+                    <option value="Papaya" {% if response.favorite_fruit == "Papaya" %}selected{% endif %}>Papaya</option>
+                    <option value="Apple" {% if response.favorite_fruit == "Apple" %}selected{% endif %}>Apple</option>
+                    <option value="Tomato" {% if response.favorite_fruit == "Tomato" %}selected{% endif %}>Tomato</option>
+                </select>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="description" class="form-control" id="description" rows="3" placeholder="Describe yourself">{{ response.description }}</textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

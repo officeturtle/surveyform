@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+        h1 {
+            color: Green;
+        }
+    </style>
+<head>
+<body>
+    <h1>Hello, Welcome Back!</h1>
+</body>
+</head>
+<body>
+    <h2>Enter User Details</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
